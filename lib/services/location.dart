@@ -19,12 +19,13 @@ class Location
     }
     if(checkPermission!=LocationPermission.denied)
     {
-      Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.medium);
+      Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+   
       return position;
     }
     else
     {
-      return Future<Position>.error('no permsission');
+      return Future.error('no permsission');
     }
 
     

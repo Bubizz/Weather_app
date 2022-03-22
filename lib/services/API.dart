@@ -12,20 +12,29 @@ class API
 
   static const String basePath = 'v2.0';
 
-  Future<Map<String, dynamic>> fetchData(Position? userLocation, String resourcePath) async
+  Future<Map<String, dynamic>> fetchData(Position userLocation, String resourcePath) async
   {
+    
     var url = Uri(
     scheme: 'http',
     host: host,
     path: basePath + resourcePath,
-    queryParameters: {'lat' : userLocation!.latitude.toString(), 'lon' : userLocation.longitude.toString(), 'key' : APIkey.apikey, 'lang' : 'en'}
+    queryParameters: {'lat' : userLocation.latitude.toString(), 'lon' : userLocation.longitude.toString(), 'key' : APIkey.apikey, 'lang' : 'en'}
   );
-  print(url);
-    var response = await http.get(url);
 
-    var map = jsonDecode(response.body);
+  var response = await http.get(url);
   
-    return map;
+  if(response.statusCode == 200)
+  {
+    var map = jsonDecode(response.body);
+    return map['data'][0];
+
+  }
+  else
+  {
+    return Future.error(Error());
+  }
+    
   
   }
 
