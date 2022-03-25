@@ -5,7 +5,6 @@ import 'package:weather_forecast/screens/weather_displayer.dart';
 import './providers/location_provider.dart';
 import './providers/weather_provider.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -13,26 +12,24 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => WeatherProvider()),
+        ChangeNotifierProvider(create: (_) => WeatherProvider()),
         ChangeNotifierProvider(
           create: (_) => LocationProvider(),
-          )
+        )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-          textTheme: TextTheme(
-            bodyText2: GoogleFonts.montserrat(textStyle: const TextStyle(fontSize: 24, color: Colors.white))
-          )
-        ),
+            primarySwatch: Colors.blue,
+            cardColor: Colors.amberAccent,
+            textTheme: TextTheme(
+                bodyText2: GoogleFonts.montserrat(textStyle: const TextStyle(fontSize: 14, color: Colors.white)),
+                bodyText1: TextStyle(fontSize: 10))),
         home: Scaffold(
           body: Container(
             height: double.infinity,
@@ -50,11 +47,9 @@ class MyApp extends StatelessWidget {
               ),
             ),
             child: const WeatherDisplayer(),
-            
           ),
         ),
       ),
-      
     );
   }
 }
