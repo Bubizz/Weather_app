@@ -34,72 +34,70 @@ class _WeatherPresenterState extends State<WeatherPresenter>
       padding: EdgeInsets.symmetric(horizontal: padding, vertical: 30),
       child: SlideTransition(
         position: _offsetAnimation,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.location_pin,
-                      size: 30,
-                    ),
-                    Text(widget.weather.city,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline4!
-                            .copyWith(color: Colors.black, fontSize: 30)),
-                  ]),
-              const SizedBox(height: 30),
-              IntrinsicHeight(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    
-                    Column(
-                      children: [
-                        Image.asset(
-                          'assets/images/' + widget.weather.image + '.png',
-                        ),
-                        Text(widget.weather.description, style: TextStyle(fontSize: 20)),
-                      ],
-                    ),
+        child: Column(
+          children: [
+            Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.location_pin,
+                    size: 30,
+                  ),
+                  Text(widget.weather.city!,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4!
+                          .copyWith(color: Colors.black, fontSize: 30)),
+                ]),
+            const SizedBox(height: 30),
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
                   
-                    Expanded(
-                    
-                      child: FittedBox(
-                        alignment: Alignment.center,
-                        fit: BoxFit.contain,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.weather.temp.toInt().toString() + ' °C',
-                              style: Theme.of(context).textTheme.bodyText2,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Text(widget.weather.windspeed.toStringAsFixed(2) +
-                                ' m/s'),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Text('last updated:'),
-                            Text(widget.weather.timeStamp!, style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 12),),
-                          ],
-                        ),
+                  Column(
+                    children: [
+                      Image.asset(
+                        'assets/images/' + widget.weather.image + '.png',
+                      ),
+                      Text(widget.weather.description, style: TextStyle(fontSize: 20)),
+                    ],
+                  ),
+                  const Spacer(flex: 1,),
+                  Expanded(
+                    flex: 4,
+                    child: FittedBox(
+                      alignment: Alignment.center,
+                      fit: BoxFit.contain,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.weather.temp.toInt().toString() + ' °C',
+                            style: Theme.of(context).textTheme.bodyText2,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(widget.weather.windspeed.toStringAsFixed(2) +
+                              ' m/s'),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text('last updated:'),
+                          Text(widget.weather.timeStamp!, style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 12),),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-              )
-              
-            ],
+                  ),
+                ],
+              ),
+            )
             
-          ),
+          ],
+          
         ),
       ),
     );

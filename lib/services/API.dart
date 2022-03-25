@@ -41,7 +41,7 @@ class API {
     });
   
     var response = await http.get(url);
-    print(url);
+    
 
     if (response.statusCode == 200) {
     

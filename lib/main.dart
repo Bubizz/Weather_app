@@ -25,11 +25,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-            primarySwatch: Colors.blue,
-            cardColor: Colors.amberAccent,
+            cardColor: const Color.fromARGB(255, 107, 124, 219),
             textTheme: TextTheme(
-                bodyText2: GoogleFonts.montserrat(textStyle: const TextStyle(fontSize: 14, color: Colors.white)),
-                bodyText1: TextStyle(fontSize: 10))),
+                bodyText2: GoogleFonts.montserrat(textStyle: const TextStyle(fontSize: 18, color: Colors.white)),
+            ),),
         home: Scaffold(
           body: Container(
             height: double.infinity,
@@ -39,10 +38,11 @@ class MyApp extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomLeft,
                 colors: [
+                   Color.fromARGB(248, 80, 92, 201),
+                  Color.fromARGB(248, 55, 64, 145),
                   Color.fromARGB(246, 87, 183, 238),
                   Color.fromARGB(248, 108, 121, 235),
-                  Color.fromARGB(248, 80, 92, 201),
-                  Color.fromARGB(248, 55, 64, 145)
+                 
                 ],
               ),
             ),

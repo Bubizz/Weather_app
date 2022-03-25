@@ -19,20 +19,12 @@ class WeatherProvider with ChangeNotifier {
    Future<List<Weather>> getWeekForecast(Future<Position> userLocation) async {
     var position = await userLocation;
     var weather = await api.fetchForecast(position, weekPath);
-    for(int i = 0; i <=15; i++)
-    {
-        
-    weather[i]["city_name"] = "Poznań";
-
-
-  
-    }
-
-  
-
-    var list = List<Weather>.generate(15, (index) {print(weather[index]['temp']);print(weather[index]['ob_time']) ;print(weather[index]['weather']['icon']); print( weather[index]['weather']['description']); return Weather.fromJson(weather[index]); });
     
-    return list;
+    var dailyWeatherList = List<Weather>.generate(15, (index) => Weather.fromJson(weather[index]));
+
+
+    
+    return dailyWeatherList;
     
   
   }

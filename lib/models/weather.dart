@@ -1,7 +1,7 @@
 
 class Weather 
 {
-  final String city;
+  final String? city;
   final num temp;
   final String image;
   final String description;

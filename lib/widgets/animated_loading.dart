@@ -46,7 +46,7 @@ class _AnimatedLoaderState extends State<AnimatedLoader> with TickerProviderStat
               ),
               turns: _animation,
             ),
-            const Text('We are trying to find you'),
+            Text(widget.text),
           ],
         ),
       ),

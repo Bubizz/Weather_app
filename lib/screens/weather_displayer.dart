@@ -35,11 +35,19 @@ class _WeatherDisplayerState extends State<WeatherDisplayer> {
                 return ForecastList(position: location);
               } else if (snapshot2.hasData) {
                 return 
-                    ForecastList(position: location);
+                
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          WeatherPresenter(weather: snapshot2.data!),
+                          ForecastList(position: location),
+                        ],
+                      ),
+                    );
                   
                 
               } else {
-                return ForecastList(position: location);
+                return const AnimatedLoader(text: 'Fetching weather');
               }
             }));
   }
