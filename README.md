@@ -1,6 +1,6 @@
 # weather_forecast
 
-A new Flutter project.
+![Screenshot](assets/images/screen.png)
 
 ## Getting Started
 
